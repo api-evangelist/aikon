@@ -1,0 +1,572 @@
+{
+    "id": "157383a40e0be11e2d55fdc572913ceb",
+    "name": "AIKON ORE ID API Reference",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "c6e9885711c782544da2f6de9a4ded58",
+            "name": "Get User",
+            "url": "{{oreid_url}}\/api\/account\/user?account=ore1pcjp511v",
+            "description": "This endpoint allows you to get the users information record.\n\n## Errors:\n\n```\nCode: 400 Bad Request\n{\n    \"message\": \"Problem handling \/user request\",\n    \"error\": \"Error: User not found\"\n}\n```\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "account",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "ffd3806a748d474453ee5507837e49f0",
+            "name": "Passwordless Login - Send Code",
+            "url": "{{oreid_url}}\/api\/account\/login-passwordless-send-code?provider=email&email=myemail@email.com",
+            "description": "There are two ways of performing a passwordless login using an email or phone number.\n\nThe most  common way is to use our auth endpoint and use either 'phone' or 'email' as the provider.  The auth flow will send the user an email or sms message, and prompt them to enter the returned code.  If the code is valid, the users account will be created and they will be logged in.\n\nThe second way is to call one endpoint to send a code to the user, and another to verify the code.  Then once you have the c",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "provider",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "f5b83f9095863283daa715450edd70d4",
+            "name": "Custodial - Sign Transaction",
+            "url": "{{oreid_url}}\/api\/custodial\/sign",
+            "description": "Sign a transaction for a custodial account\n\n\n##### PARAMETERS\n---\n**account** - (Required) The 12-character ORE account name of the user signing the transaction.\n\n**chain_account** - (Required) The 12-character account name associated with the transaction (the transaction actor) for the chain specified by chain_network. Usually the same as the user\u2019s ORE account but can be different for different chains.\n\n**transaction** - (Required) Base64 encoded JSON of the transaction.\n\n**broadca",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "POST",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "a2e97660f8320171fe89f4eebf349f03",
+            "name": "Browser: Authenticate User",
+            "url": "{{oreid_url}}\/auth?app_access_token=access_token&provider=facebook&callback_url=https%3A%2F%2Fmysite.com%2Fauth&background_color=AADDFF&state=optional_string",
+            "description": "This URL is called from your application in the browser to Authenticate a user. You will need an app_access_token from the Get App Token api call.\n\nFowards the browser to the ORE ID auth flow. The user will enter a PIN to create or unlock their account. Returns to your callback_url when completed.\n\nIf there are errors, there will be information in query parameters on the callback_url\n\n\n**Common Errors:**\n\ncallback_invalid: The callback_url is not listed in the callback URLs section of the Settin",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "app_access_token",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "provider",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "callback_url",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "background_color",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "e27084e58ae294c6160272f23e842db4",
+            "name": "Chain Get Account - Kylin",
+            "url": "https:\/\/api.kylin.alohaeos.com:443\/v1\/chain\/get_account",
+            "description": "Get information about an an account on the Kylin test net.  You need to include the account_name in the body of the request.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "da9d31f56876792af4c4074b0d0d21ab",
+            "name": "Get App Token For Monitor",
+            "url": "{{oreid_url}}\/api\/app-token",
+            "description": "Returns an app_access_token which is needed for authenticating users and signing transactions.\n\nThe app token is valid for a single request. It expires (if not used) in 2 minutes.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "212f169d6ccf3ce7f279448f98c24089",
+            "name": "Custodial - Create Account",
+            "url": "{{oreid_url}}\/api\/custodial\/new-user",
+            "description": "Create a custodial account.  Returns a 12 digit EOS account name (user\u2019s ORE account name)\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "POST",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "217605cc76bdf37f0936f379a6c8274f",
+            "name": "Passwordless Login - Verify Code",
+            "url": "{{oreid_url}}\/api\/account\/login-passwordless-verify-code?email=myemail@email.com&provider=email&code=511186",
+            "description": "This will verify a code entered by the user on your website.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "provider",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "code",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "cb54fa95e0994831926c699814970715",
+            "name": "Add Permission",
+            "url": "{{oreid_url}}\/api\/account\/add-permission?account=oresdkdslise&permission=perm&parent-permission=parent_perm&wallet-type=facebook&chain_account=oresdkdslise&chain_network=ore&public-key=public_key",
+            "description": "Add a public key to a user's existing OREID account. This is useful to track a user's blockchain keys. The eos-auth library will add a public key using this API if the user signs a transction with an EOS key stored in a user's wallet (e.g. Scatter). In this way, your app can help the user find his keys regardless of what wallet they are stored in. \nNote: If a permission with this name already exists, the transaction will fail.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "account",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "permission",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "parent-permission",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "wallet-type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "chain_account",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "chain_network",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "public-key",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "561cc8345198d467be739cdc7b404f06",
+            "name": "Browser: Sign Transaction",
+            "url": "{{oreid_url}}\/sign?account=mybcusername&allow_chain_account_selection=false&app_access_token=token&broadcast=true&callback_url=https%3A%2F%2Fmysite.com%2Fsign&chain_account=mybcusername&chain_network=ore&return_signed_transaction=true&state=optional_string&transaction=base64Transaction",
+            "description": "This URL is called from your application in the browser to sign a transaction.\n\nForwards the browser to ORE ID where the user will enter a PIN to sign the transaction.\n\nThe browser will return to the callback URL when completed.\n\nIf there are errors, they will show in the query parameters in the callback.\n\n\n**Common Errors:**\n\ncallback_invalid: You need to make sure the callback is set and listed in the callback URLs section of the Settings panel at https:\/\/staging.oreid.io\/developer\/app-setting",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "account",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "allow_chain_account_selection",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app_access_token",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "broadcast",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "callback_url",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "chain_account",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "chain_network",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "return_signed_transaction",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "transaction",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "a40b9ce587243dee00819922ecd17ae8",
+            "name": "Custodial - Migrate Account",
+            "url": "{{oreid_url}}\/api\/custodial\/migrate-account",
+            "description": "Migrate a user's custodial account type (eg from virtual to native)\n\n\n##### PARAMETERS\n---\n**account** - (Required) The 12-character ORE account name of the user.\n\n**chain_account** - (Required) The 12-character account name on the chain specified by chain_network. Usually the same as the user\u2019s ORE account but can be different for different chains.\n\n**chain_network** - (Required) eos_main, eos_kylin, etc. Valid options can be found in the Get Settings - Chains Config API call result",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "POST",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "f121cb52afef4f29074712918cc10441",
+            "name": "Get Settings - Chains Config",
+            "url": "{{oreid_url}}\/api\/services\/config?type=chains",
+            "description": "Get the list of blockchain names and urls. This is the value used for the chainAccount parameter in several APIs.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        },
+        {
+            "id": "c0908d09f65e933bd531f2801ce1139a",
+            "name": "Passwordless Login - Authenticate User",
+            "url": "{{oreid_url}}\/auth?provider=email&callback_url=https%3A%2F%2Fmysite.com%2Fauth&background_color=AADDFF&state=optional_string&email=myemail@email.com&phone=+12223334444&code=511186",
+            "description": "This is the same endpoint as Authenticating a User, but with the additional params for the email or phone, and the verification code. You will need an app_access_token from the Get App Token api call.\n\n\n**Common Errors:**\n\ncallback_invalid: The callback_url is not listed in the callback URLs section of the Settings panel at https:\/\/staging.oreid.io\/developer\/app-settings\n\ninvalid_login_code: Login code expired or mistyped.\n\nView a complete list of the error codes here.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "GET",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "provider",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "callback_url",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "background_color",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "state",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "phone",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "code",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "157383a40e0be11e2d55fdc572913ceb",
+            "rawModeData": ""
+        }
+    ]
+}
