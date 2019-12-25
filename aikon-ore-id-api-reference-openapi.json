@@ -1,0 +1,320 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "AIKON ORE ID",
+        "description": "AIKON provides Blockchain Identity as a Service that connects businesses to the most important public blockchains - EOS, Ethereum, Libra and more!",
+        "termsOfService": ""
+    },
+    "servers": [],
+    "paths": {
+        "{{oreid_url}}\/api\/account\/user?account=ore1pcjp511v": {
+            "GET": {
+                "summary": "Get User",
+                "description": "This endpoint allows you to get the users information record.\n\n## Errors:\n\n```\nCode: 400 Bad Request\n{\n    \"message\": \"Problem handling \/user request\",\n    \"error\": \"Error: User not found\"\n}\n```\n\nView a complete list of the error codes here.",
+                "operationId": "GetUser",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/api\/account\/login-passwordless-send-code?provider=email&email=myemail@email.com": {
+            "GET": {
+                "summary": "Passwordless Login - Send Code",
+                "description": "There are two ways of performing a passwordless login using an email or phone number.\n\nThe most  common way is to use our auth endpoint and use either 'phone' or 'email' as the provider.  The auth flow will send the user an email or sms message, and prompt them to enter the returned code.  If the code is valid, the users account will be created and they will be logged in.\n\nThe second way is to call one endpoint to send a code to the user, and another to verify the code.  Then once you have the c",
+                "operationId": "PasswordlessLoginSendCode",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/api\/custodial\/sign": {
+            "POST": {
+                "summary": "Custodial - Sign Transaction",
+                "description": "Sign a transaction for a custodial account\n\n\n##### PARAMETERS\n---\n**account** - (Required) The 12-character ORE account name of the user signing the transaction.\n\n**chain_account** - (Required) The 12-character account name associated with the transaction (the transaction actor) for the chain specified by chain_network. Usually the same as the user\u2019s ORE account but can be different for different chains.\n\n**transaction** - (Required) Base64 encoded JSON of the transaction.\n\n**broadca",
+                "operationId": "CustodialSignTransaction",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "{{oreid_url}}\/auth?app_access_token=access_token&provider=facebook&callback_url=https%3A%2F%2Fmysite.com%2Fauth&background_color=AADDFF&state=optional_string": {
+            "GET": {
+                "summary": "Browser: Authenticate User",
+                "description": "This URL is called from your application in the browser to Authenticate a user. You will need an app_access_token from the Get App Token api call.\n\nFowards the browser to the ORE ID auth flow. The user will enter a PIN to create or unlock their account. Returns to your callback_url when completed.\n\nIf there are errors, there will be information in query parameters on the callback_url\n\n\n**Common Errors:**\n\ncallback_invalid: The callback_url is not listed in the callback URLs section of the Settin",
+                "operationId": "BrowserAuthenticateUser",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "app_access_token",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "callback_url",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "background_color",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "https:\/\/api.kylin.alohaeos.com:443\/v1\/chain\/get_account": {
+            "GET": {
+                "summary": "Chain Get Account - Kylin",
+                "description": "Get information about an an account on the Kylin test net.  You need to include the account_name in the body of the request.\n\nView a complete list of the error codes here.",
+                "operationId": "ChainGetAccountKylin",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "{{oreid_url}}\/api\/app-token": {
+            "GET": {
+                "summary": "Get App Token For Monitor",
+                "description": "Returns an app_access_token which is needed for authenticating users and signing transactions.\n\nThe app token is valid for a single request. It expires (if not used) in 2 minutes.\n\nView a complete list of the error codes here.",
+                "operationId": "GetAppTokenForMonitor",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "{{oreid_url}}\/api\/custodial\/new-user": {
+            "POST": {
+                "summary": "Custodial - Create Account",
+                "description": "Create a custodial account.  Returns a 12 digit EOS account name (user\u2019s ORE account name)\n\nView a complete list of the error codes here.",
+                "operationId": "CustodialCreateAccount",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "{{oreid_url}}\/api\/account\/login-passwordless-verify-code?email=myemail@email.com&provider=email&code=511186": {
+            "GET": {
+                "summary": "Passwordless Login - Verify Code",
+                "description": "This will verify a code entered by the user on your website.\n\nView a complete list of the error codes here.",
+                "operationId": "PasswordlessLoginVerifyCode",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/api\/account\/add-permission?account=oresdkdslise&permission=perm&parent-permission=parent_perm&wallet-type=facebook&chain_account=oresdkdslise&chain_network=ore&public-key=public_key": {
+            "GET": {
+                "summary": "Add Permission",
+                "description": "Add a public key to a user's existing OREID account. This is useful to track a user's blockchain keys. The eos-auth library will add a public key using this API if the user signs a transction with an EOS key stored in a user's wallet (e.g. Scatter). In this way, your app can help the user find his keys regardless of what wallet they are stored in. \nNote: If a permission with this name already exists, the transaction will fail.\n\nView a complete list of the error codes here.",
+                "operationId": "AddPermission",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "permission",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "parent-permission",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "wallet-type",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "chain_account",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "chain_network",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "public-key",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/sign?account=mybcusername&allow_chain_account_selection=false&app_access_token=token&broadcast=true&callback_url=https%3A%2F%2Fmysite.com%2Fsign&chain_account=mybcusername&chain_network=ore&return_signed_transaction=true&state=optional_string&transaction=base64Transaction": {
+            "GET": {
+                "summary": "Browser: Sign Transaction",
+                "description": "This URL is called from your application in the browser to sign a transaction.\n\nForwards the browser to ORE ID where the user will enter a PIN to sign the transaction.\n\nThe browser will return to the callback URL when completed.\n\nIf there are errors, they will show in the query parameters in the callback.\n\n\n**Common Errors:**\n\ncallback_invalid: You need to make sure the callback is set and listed in the callback URLs section of the Settings panel at https:\/\/staging.oreid.io\/developer\/app-setting",
+                "operationId": "BrowserSignTransaction",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "allow_chain_account_selection",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "app_access_token",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "broadcast",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "callback_url",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "chain_account",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "chain_network",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "return_signed_transaction",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "transaction",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/api\/custodial\/migrate-account": {
+            "POST": {
+                "summary": "Custodial - Migrate Account",
+                "description": "Migrate a user's custodial account type (eg from virtual to native)\n\n\n##### PARAMETERS\n---\n**account** - (Required) The 12-character ORE account name of the user.\n\n**chain_account** - (Required) The 12-character account name on the chain specified by chain_network. Usually the same as the user\u2019s ORE account but can be different for different chains.\n\n**chain_network** - (Required) eos_main, eos_kylin, etc. Valid options can be found in the Get Settings - Chains Config API call result",
+                "operationId": "CustodialMigrateAccount",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "{{oreid_url}}\/api\/services\/config?type=chains": {
+            "GET": {
+                "summary": "Get Settings - Chains Config",
+                "description": "Get the list of blockchain names and urls. This is the value used for the chainAccount parameter in several APIs.\n\nView a complete list of the error codes here.",
+                "operationId": "GetSettingsChainsConfig",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "{{oreid_url}}\/auth?provider=email&callback_url=https%3A%2F%2Fmysite.com%2Fauth&background_color=AADDFF&state=optional_string&email=myemail@email.com&phone=+12223334444&code=511186": {
+            "GET": {
+                "summary": "Passwordless Login - Authenticate User",
+                "description": "This is the same endpoint as Authenticating a User, but with the additional params for the email or phone, and the verification code. You will need an app_access_token from the Get App Token api call.\n\n\n**Common Errors:**\n\ncallback_invalid: The callback_url is not listed in the callback URLs section of the Settings panel at https:\/\/staging.oreid.io\/developer\/app-settings\n\ninvalid_login_code: Login code expired or mistyped.\n\nView a complete list of the error codes here.",
+                "operationId": "PasswordlessLoginAuthenticateUser",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "provider",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "callback_url",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "background_color",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "phone",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": []
+    }
+}
